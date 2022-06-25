@@ -25,7 +25,24 @@ class BaseVehicle:
         else:
             print('engine already started')
 
+    def move(self, data):
+        self.insert_values(data)
+        distance = input('Enter distance \n')
+        fuel_consumption_per_1_km = self.fuel_consumption / 100
+        fuel_consumed = fuel_consumption_per_1_km * float(distance)
+        if self.fuel - fuel_consumed < 0:
+            print(ex.NotEnoughFuel())
+        else:
+            self.fuel = self.fuel - fuel_consumed
+            print(f"remaining fuel is: {self.fuel} liters")
+
+
+
+
+
+
 
 if __name__ == '__main__':
     car = BaseVehicle()
-    car.start([2000, 0, 0, 10])
+    # car.start([2000, 0, 0, 10])
+    car.move([2000, 0, 10, 10])
