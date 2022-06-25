@@ -1,4 +1,5 @@
 import exceptions as ex
+import engine
 
 
 class BaseVehicle:
@@ -27,7 +28,7 @@ class BaseVehicle:
 
     def move(self, data):
         self.insert_values(data)
-        distance = input('Enter distance \n')
+        distance = input('Enter distance to travel: \n')
         fuel_consumption_per_1_km = self.fuel_consumption / 100
         fuel_consumed = fuel_consumption_per_1_km * float(distance)
         if self.fuel - fuel_consumed < 0:
@@ -35,11 +36,6 @@ class BaseVehicle:
         else:
             self.fuel = self.fuel - fuel_consumed
             print(f"remaining fuel is: {self.fuel} liters")
-
-
-
-
-
 
 
 if __name__ == '__main__':
