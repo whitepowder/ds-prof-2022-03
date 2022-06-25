@@ -1,5 +1,4 @@
 import exceptions as ex
-import engine
 
 
 class BaseVehicle:
